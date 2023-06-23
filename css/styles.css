@@ -1,3 +1,51 @@
 * {
   margin: 0;
   padding: 0; }
+
+body {
+  background-color: #050505;
+  color: #ffff;
+  display: flex;
+  padding: 0 20rem; }
+
+.dictionary-wrapper {
+  margin-top: 1rem; }
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  .navigation_functionalities {
+    display: flex;
+    align-items: center; }
+    .navigation_functionalities .font-dropdown select {
+      width: 100%;
+      padding: 2px;
+      background-color: #050505;
+      color: #ffff;
+      border: none; }
+      .navigation_functionalities .font-dropdown select:focus {
+        outline: none; }
+    .navigation_functionalities .theme-feature .toggle {
+      display: flex;
+      align-items: center; }
+
+.search-container {
+  margin: 1.5rem 0;
+  width: 100%;
+  position: relative; }
+  .search-container input {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    outline: #a445ed;
+    background-color: #1F1F1F;
+    border: none; }
+  .search-container img {
+    position: absolute;
+    top: .8rem;
+    right: 0rem; }
+
+#word-display {
+  display: flex;
+  align-items: center; }

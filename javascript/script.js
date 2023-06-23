@@ -1,81 +1,60 @@
 const head = document.getElementById("header");
-const phonetic = document.getElementById("phonetic");
-const partsOfSpeech = document.getElementById("partsOfSpeech");
+const phoneticEl = document.getElementById("phonetic");
+const partsOfSpeechOneEl = document.getElementById("parts-of-speech-one");
+const partsOfSpeechTwoEl = document.getElementById("parts-of-speech-two");
 const meanning = document.getElementById("mean");
+const definitionsContainer = document.getElementById("definitionsContainerOne");
+const definitionsContainerTwo = document.getElementById("definitionsContainerTwo")
+const synonymEl = document.getElementById('synonym');
+const exampleEl = document.getElementById('example');
 
-const data = fetch("../api.json")
-  .then((response) => response.json())
-  .then((data) => {
-    const gender = data.results[0].gender;
-    console.log(gender);
 
-    // const location = data.results.map((result) =>{
-    //     // return result.location.coordinates.latitude;
-    //     return result.login.username;
-    // })
 
-    // console.log(...location)
-
-    // head.innerHTML = `${data.results.map((result) => {
-    //   return result.gender;
-    // })}`;
-  });
-
-// const data = require('../api.json')
-
-// console.log(data.results.gender)
-
-// const date = fetch("../javascript/diction.json")
-//   .then((response) => response.json())
-//   .then((data) => {
-//     head.innerHTML = `${data.map((result) => {
-//         return result.word;
-//       })}`;
-//   });
-
-let word = "keyboard";
+const word = "keyboard";
 const apiURL = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+
+// console.log(data)
+
+head.innerHTML = `${word}`
 
 fetch(apiURL)
   .then((response) => response.json())
   .then((data) => {
-    console.log(...data);
+    const meaningsOne = data[0].meanings[0] || {};
+    const meaningsTwo = data[0].meanings[1] || {};
 
 
-    // phonetic.innerHTML = `${data.map(result)}`
-    // res = data[0]
-    data.map((res) => {
-      phonetic.innerHTML = res.phonetic;
-      head.innerHTML = res.word;
-      partsOfSpeech.innerHTML = res.meanings[0].partOfSpeech;
+    const synonyms = meaningsOne.synonyms || [];
 
-      //   res.meanings[1].definitions.map((def) => {
-      //     console.log(def);
-      //   });
+    const partsOfSpeechOne = meaningsOne.partOfSpeech || "";
+    const partsOfSpeechTwo = meaningsTwo.partOfSpeech || "";
+    const phonetic = data[0].phonetic;
 
-      const definitionsContainer = document.getElementById(
-        "definitionsContainer"
-      );
-      const meanings = res.meanings[0].definitions;
-      console.log(meanings);
-      let counter = 0;
+    const definitionTwo = meaningsTwo.definitions[0]?.definition || "";
+    console.log(partsOfSpeechTwo)
+    console.log(meaningsTwo)
+    
 
-      meanings.forEach((meaning) => {
-        // const partOfSpeech = meaning.partOfSpeech;
-        const definitionsList = meaning;
 
-        console.log(definitionsList);
+    exampleEl.innerText = `${meaningsTwo.definitions[0]?.example}`
+    definitionsContainerTwo.innerText = `${definitionTwo}`
+    partsOfSpeechTwoEl.innerText = `${partsOfSpeechTwo}`
+    partsOfSpeechOneEl.innerText = `${partsOfSpeechOne}`
+    phoneticEl.innerText = `${phonetic}`;
 
-        const definition = meaning.definition;
-        const definitionItem = document.createElement("div");
-        definitionItem.classList.add("definition-item");
+    console.log(meaningsOne)
+    
 
-        const definitionText = document.createElement("p");
-        definitionText.innerHTML = `${definition}`;
-        definitionItem.appendChild(definitionText);
-        definitionsContainer.appendChild(definitionItem);
-      });
+    meaningsOne.definitions.slice(0, 3).forEach((meaning) => {
+      const { definition } = meaning;
+      const definitionItem = document.createElement("div");
+      definitionItem.classList.add("definition-item");
+    
+      const definitionText = document.createElement("p");
+      definitionText.textContent = definition;
+      definitionItem.appendChild(definitionText);
+      definitionsContainer.appendChild(definitionItem);
 
-      // console.log(res.meanings[0].partOfSpeech)
+        synonymEl.innerText = `${synonyms}`
     });
   });

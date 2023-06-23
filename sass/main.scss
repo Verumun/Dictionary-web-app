@@ -1,12 +1,95 @@
+@import 'abstracts/variables';
+
 * {
   margin: 0;
   padding: 0;
 }
 
-#definitionsContainer{
-    background-color: red;
+// #definitionsContainerOne {
+//   background-color: red;
 
-    p{
-        padding: 2rem;
+//   p {
+//     padding: 0.5rem; 
+//   }
+// }
+
+body{
+  background-color: $black;
+  color: $white;
+  display: flex;
+  padding: 0 20rem;
+}
+
+.dictionary-wrapper{
+  margin-top: 1rem;
+}
+
+.navigation{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &_functionalities{
+    display: flex;
+    align-items: center;
+
+    // Font dropdwon
+    .font-dropdown{
+      // width: 200px;
+      // background-color: red;
+      // padding: 5rem;
+
+      select{
+        width: 100%;
+        padding: 2px;
+        background-color: $black;
+        color: $white;
+        border: none;
+
+        &:focus{
+          outline:none;
+        }
+      }
     }
+
+    .theme-feature{
+
+      .toggle{
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+// Search Container
+.search-container{
+  margin: 1.5rem 0;
+  width: 100%;
+  position: relative;
+
+  input{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    outline: $purple;
+    background-color: $light-black;
+    border: none;
+  }
+
+  img{
+    position: absolute;
+    top: .8rem;
+    right: 0rem;
+    
+  }
+}
+
+#word-display{
+  display: flex;
+  align-items: center;
+
+  .word{
+    // display: flex;
+  }
 }

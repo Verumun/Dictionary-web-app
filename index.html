@@ -11,5 +11,113 @@
 </head>
 <body>
 
+  <section class="dictionary-wrapper">
+    <!-- Navigation -->
+    <div class="navigation">
+      <div class="navigation_image">
+        <img src="assets/images/logo.svg" alt="">
+      </div>
+        <!-- End of Navigation -->
+
+        <!-- Functionalities -->
+      <div class="navigation_functionalities">
+        <div class="font-dropdown">
+          <select name="" id="dropdown">
+
+            <option value="Sans Serif">Sans Serif</option>
+            <option value="Serif">Serif</option>
+            <option value="Mono">Mono</option>
+          </select>
+        </div>
+        <!-- <div class="divider"></div> -->
+        <!-- End of functionalities -->
+
+        <!-- Theme feature -->
+        <div class="theme-feature">
+          <div class="toggle">
+            <label class="toggle-switch">
+              <input type="checkbox" id="toggle">
+              <span class="slider round"></span>
+            </label>
+            
+            <div class="image-toggle">
+              <img src="assets/images/icon-moon.svg" alt="" class="night">
+            </div>
+          </div>
+        </div>
+        <!-- End of theme feature -->
+      </div>
+      <!-- End of Functionalities -->
+    </div>
+    <!-- End of Navigation -->
+
+
+    <!-- Input-search-container -->
+    <div class="search-container">
+      <input type="text" placeholder="Search">
+      <img src="assets/images/icon-search.svg" alt="">
+    </div>
+    <!-- End of Input-search-container -->
+
+
+    <!-- Word displayer -->
+    <section id="word-display">
+      <div class="word">
+        <h2 id="header"></h2>
+        <p id="phonetic"></p>
+      </div>
+
+      <div class="audio">
+        <audio id="audio" src="">
+          
+        </audio>
+        <img src="assets/images/icon-play.svg" alt="">
+      </div>
+    </section>
+    <!-- End of Word displayer -->
+    
+    <div class="meaning-one-wrapper">
+      <div class="partsOfSpeech-wrapper">
+        <h4 id="parts-of-speech-one"></h4>
+      </div>
+
+      <div class="meaning-wrapper">
+        <h2>Meaning</h2>
+        <div id="definitionsContainerOne"></div>
+      </div>
+      
+      <div class="synonyms">
+        <h3 >Synonyms</h3>
+        <a href="" id="synonym"></a>
+      </div>
+    </div>
+    
+    
+    <!-- 2nd Meaning Wrapper-->
+    <div class="meaning-two-wrapper">
+      <div class="partsOfSpeech-wrapper">
+        <h4 id="parts-of-speech-two"></h4>
+      </div>
+
+      <div class="meaning-wrapper">
+        <h2>Meaning</h2>
+        <div id="definitionsContainerTwo"></div>
+        <div id="example"></div>
+      </div>
+    </div>
+
+
+
+
+    <!-- Not-found -->
+    <div></div>
+    <!-- End Of not found -->
+  </section>
+
+
+
+
+
 </body>
+<script src="javascript/script.js"></script>
 </html>

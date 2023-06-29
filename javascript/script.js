@@ -9,6 +9,10 @@ const synonymEl = document.getElementById('synonym');
 const exampleEl = document.getElementById('example');
 
 
+// Input
+const toggle = document.getElementById('input')
+
+
 
 const word = "keyboard";
 const apiURL = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
@@ -20,8 +24,11 @@ head.innerHTML = `${word}`
 fetch(apiURL)
   .then((response) => response.json())
   .then((data) => {
-    const meaningsOne = data[0].meanings[0] || {};
-    const meaningsTwo = data[0].meanings[1] || {};
+    const meaningsOne = data[0].meanings[0];
+    const meaningsTwo = data[0].meanings[0];
+
+    console.log(data[0].meanings[1])
+    console.log(data[0].meanings)
 
 
     const synonyms = meaningsOne.synonyms || [];
@@ -31,7 +38,7 @@ fetch(apiURL)
     const phonetic = data[0].phonetic;
 
     const definitionTwo = meaningsTwo.definitions[0]?.definition || "";
-    console.log(partsOfSpeechTwo)
+    // console.log(partsOfSpeechTwo)
     console.log(meaningsTwo)
     
 
@@ -50,11 +57,29 @@ fetch(apiURL)
       const definitionItem = document.createElement("div");
       definitionItem.classList.add("definition-item");
     
+      const bulletPoint = document.createElement("span");
+      bulletPoint.classList.add("bullet-point");
+      bulletPoint.textContent = "\u2022"; // Unicode character for bullet point
+    
       const definitionText = document.createElement("p");
       definitionText.textContent = definition;
+      
+      definitionItem.appendChild(bulletPoint);
       definitionItem.appendChild(definitionText);
       definitionsContainer.appendChild(definitionItem);
-
-        synonymEl.innerText = `${synonyms}`
+    
+      synonymEl.innerText = `${synonyms}`;
     });
   });
+
+
+
+  function updateMoon(){
+    
+  }
+
+  toggle.addEventListener('change',function(){
+
+  })
+
+ 

@@ -1,129 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <link rel="stylesheet" href="css/styles.css">
-  
-  <title>Frontend Mentor | Dictionary web app</title>
-</head>
-<body>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
 
-  <section class="dictionary-wrapper">
-    <!-- Navigation -->
-    <div class="navigation">
-      <div class="navigation_image">
-        <img src="assets/images/logo.svg" alt="">
-      </div>
+    <title>Frontend Mentor | Dictionary web app</title>
+  </head>
+  <body id="body">
+    <section class="dictionary-wrapper">
+      <!-- Navigation -->
+      <div class="navigation">
+        <div class="navigation_image">
+          <img src="assets/images/logo.svg" alt="" />
+        </div>
         <!-- End of Navigation -->
 
         <!-- Functionalities -->
-      <div class="navigation_functionalities">
-        <div class="font-dropdown">
-          <select name="" id="dropdown">
+         <!-- <div class="navigation_functionalities">
+          <div class="font-dropdown select">
+            <select name="" id="dropdown">
+              <option value="Sans Serif">Sans Serif</option>
+              <option value="Serif">Serif</option>
+              <option value="Mono">Mono</option>
+            </select>
+          </div> -->
+          <!-- <div class="divider"></div> -->
 
-            <option value="Sans Serif">Sans Serif</option>
-            <option value="Serif">Serif</option>
-            <option value="Mono">Mono</option>
-          </select>
-        </div>
-        <!-- <div class="divider"></div> -->
-        <!-- End of functionalities -->
+          <div class="navigation_functionalities select-menu">
 
-        <!-- Theme feature -->
-        <div class="theme-feature">
-          <div class="toggle">
-            <label class="toggle-switch">
-              <input type="checkbox" id="toggle">
-              <span class="slider round"></span>
-            </label>
-            
-            <div class="image-toggle">
-              <img src="assets/images/icon-moon.svg" alt="" class="night-moon">
-
-
+            <div class="select-btn">
+              <span class="Btn-text">Sans-Serif</span>
             </div>
-         
-            <!-- <img src="data:./assests/image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10c0-5.52-4.48-10-10-10zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14C7.37 6 4 9.37 4 12s3.37 6 8 6 8-3.37 8-6-3.37-6-8-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z'/%3E%3C/svg%3E" alt="" class="night moon"> -->
 
-            
+
+              <ul class="options">
+                <li class="option" data-font="Sans Serif">
+                  <span class="option-text">Sans-Serif</span>
+                </li>
+                <li class="option" data-font="Serif">
+                  <span class="option-text">Serif</span>
+                </li>
+                <li class="option" data-font="Mono">
+                  <span class="option-text">Mono</span>
+                </li>
+              </ul>
           </div>
+          <!-- End of functionalities -->
+
+          <!-- Theme feature -->
+          <div class="theme-feature">
+            <div class="toggle">
+              <label class="toggle-switch">
+                <input type="checkbox" id="toggle" />
+                <span class="slider round"></span>
+              </label>
+
+              <div class="image-toggle">
+                <img
+                  src="assets/images/icon-moon.svg"
+                  alt=""
+                  class="night-moon"
+                />
+              </div>
+
+              <!-- <img src="data:./assests/image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10c0-5.52-4.48-10-10-10zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14C7.37 6 4 9.37 4 12s3.37 6 8 6 8-3.37 8-6-3.37-6-8-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z'/%3E%3C/svg%3E" alt="" class="night moon"> -->
+            </div>
+          </div>
+          <!-- End of theme feature -->
         </div>
-        <!-- End of theme feature -->
+        <!-- End of Functionalities -->
       </div>
-      <!-- End of Functionalities -->
-    </div>
-    <!-- End of Navigation -->
+      <!-- End of Navigation -->
 
+      <!-- Input-search-container -->
+      <div class="search-container">
+        <input type="text" placeholder="Search for any word..." />
 
-    <!-- Input-search-container -->
-    <div class="search-container">
-      <input type="text" placeholder="Search">
-      <img src="assets/images/icon-search.svg" alt="">
-    </div>
-    <!-- End of Input-search-container -->
+        <img src="assets/images/icon-search.svg" alt="" />
+      </div>
+      <!-- End of Input-search-container -->
 
+      <!-- Word displayer -->
+      <section id="word-display">
+        <div class="word">
+          <h2 id="header"></h2>
+          <p id="phonetic"></p>
+        </div>
 
-    <!-- Word displayer -->
-    <section id="word-display">
-      <div class="word">
-        <h2 id="header"></h2>
-        <p id="phonetic"></p>
+        <div class="audio">
+          <audio id="audio" src=""></audio>
+          <img src="assets/images/icon-play.svg" alt="" />
+        </div>
+      </section>
+      <!-- End of Word displayer -->
+
+      <div class="meaning-one-wrapper meanings-container">
+        <div class="partsOfSpeech-wrapper">
+          <h4 id="parts-of-speech-one"></h4>
+        </div>
+
+        <div class="meaning-wrapper">
+          <h2>Meaning</h2>
+          <div id="definitionsContainerOne" class="definition_container"></div>
+        </div>
+
+        <div class="synonyms">
+          <h3>Synonyms</h3>
+          <a href="" id="synonym"></a>
+        </div>
       </div>
 
-      <div class="audio">
-        <audio id="audio" src="">
-          
-        </audio>
-        <img src="assets/images/icon-play.svg" alt="">
+      <!-- 2nd Meaning Wrapper-->
+      <div class="meaning-two-wrapper meanings-container">
+        <div class="partsOfSpeech-wrapper">
+          <h4 id="parts-of-speech-two"></h4>
+        </div>
+
+        <div class="meaning-wrapper">
+          <h2>Meaning</h2>
+          <div id="definitionsContainerTwo" class="definition_container"></div>
+          <div id="example"></div>
+        </div>
       </div>
+
+      <!-- Not-found -->
+      <div></div>
+      <!-- End Of not found -->
     </section>
-    <!-- End of Word displayer -->
-    
-    <div class="meaning-one-wrapper meanings-container">
-      <div class="partsOfSpeech-wrapper">
-        <h4 id="parts-of-speech-one"></h4>
-      </div>
-
-      <div class="meaning-wrapper">
-        <h2>Meaning</h2>
-        <div id="definitionsContainerOne" class="definition_container"></div>
-      </div>
-      
-      <div class="synonyms">
-        <h3 >Synonyms</h3>
-        <a href="" id="synonym"></a>
-      </div>
-    </div>
-    
-    
-    <!-- 2nd Meaning Wrapper-->
-    <div class="meaning-two-wrapper meanings-container">
-      <div class="partsOfSpeech-wrapper">
-        <h4 id="parts-of-speech-two"></h4>
-      </div>
-
-      <div class="meaning-wrapper">
-        <h2>Meaning</h2>
-        <div id="definitionsContainerTwo" class="definition_container"></div>
-        <div id="example"></div>
-      </div>
-    </div>
-
-
-
-
-    <!-- Not-found -->
-    <div></div>
-    <!-- End Of not found -->
-  </section>
-
-
-
-
-
-</body>
-<script src="javascript/script.js"></script>
+  </body>
+  <script src="javascript/script.js"></script>
 </html>

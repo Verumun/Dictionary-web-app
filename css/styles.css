@@ -51,58 +51,65 @@
   padding: 0; }
 
 body {
-  background-color: #050505;
-  color: #ffff;
   display: flex;
-  padding: 0 20rem; }
+  padding: 0 20rem;
+  justify-content: center; }
+  body.dark-mode {
+    background-color: #050505;
+    color: #ffff; }
+    body.dark-mode input {
+      background-color: #3a3a3a;
+      color: #ffff; }
+      body.dark-mode input::placeholder {
+        color: #ffff; }
 
 .dictionary-wrapper {
-  margin-top: 1rem; }
+  margin-top: 1rem;
+  width: 40rem;
+  overflow: hidden; }
 
 .navigation {
   display: flex;
   align-items: center;
   justify-content: space-between; }
-  .navigation_functionalities {
-    display: flex;
-    align-items: center; }
-    .navigation_functionalities .font-dropdown select {
-      width: 100%;
-      padding: 2px;
-      background-color: #050505;
-      color: #ffff;
-      border: none; }
-      .navigation_functionalities .font-dropdown select:focus {
-        outline: none; }
-    .navigation_functionalities .theme-feature {
-      margin-left: 1.5rem; }
-      .navigation_functionalities .theme-feature .image-toggle .moon {
-        stroke: red; }
-      .navigation_functionalities .theme-feature .night {
-        filter: url(#custom-filter);
-        stroke: red; }
-      .navigation_functionalities .theme-feature .custom-filter {
-        hue-rotate: 180deg; }
-      .navigation_functionalities .theme-feature .toggle {
-        display: flex;
-        align-items: center;
-        gap: 1rem; }
+  .navigation .select-menu {
+    width: 5rem;
+    position: relative; }
+    .navigation .select-menu.active .options {
+      display: block; }
+    .navigation .select-menu .select-btn::after {
+      content: url(../assets/images/icon-arrow-down.svg);
+      position: absolute;
+      top: 0;
+      right: 0rem;
+      bottom: 0;
+      pointer-events: none; }
+    .navigation .select-menu .options {
+      position: relative;
+      background-color: red;
+      margin-top: .5rem;
+      display: none; }
+      .navigation .select-menu .options .option {
+        cursor: pointer;
+        line-height: 1.7;
+        list-style-type: none; }
 
 .search-container {
   margin: 1.5rem 0;
   width: 100%;
   position: relative; }
   .search-container input {
-    width: 100%;
+    width: 93%;
     padding: 1.5rem;
     border-radius: 1rem;
     outline: #a445ed;
-    background-color: #1F1F1F;
-    border: none; }
+    background-color: #E9E9E9;
+    border: none;
+    font-size: 1.5rem; }
   .search-container img {
     position: absolute;
-    top: 1.3rem;
-    right: 0rem; }
+    top: 1.8rem;
+    right: 1.5rem; }
 
 #word-display {
   display: flex;
@@ -134,6 +141,16 @@ body {
     color: #757575;
     font-weight: lighter;
     font-size: 1.4rem; }
+  .meanings-container .synonyms {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 3rem; }
+    .meanings-container .synonyms h3 {
+      color: #757575; }
+    .meanings-container .synonyms a {
+      color: #a445ed;
+      font-weight: bold; }
 
 .definition-text {
   line-height: 2; }

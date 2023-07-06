@@ -24,7 +24,7 @@
         <!-- End of Navigation -->
 
         <!-- Functionalities -->
-         <!-- <div class="navigation_functionalities">
+        <!-- <div class="navigation_functionalities">
           <div class="font-dropdown select">
             <select name="" id="dropdown">
               <option value="Sans Serif">Sans Serif</option>
@@ -32,26 +32,25 @@
               <option value="Mono">Mono</option>
             </select>
           </div> -->
-          <!-- <div class="divider"></div> -->
+        <!-- <div class="divider"></div> -->
 
+        <div class="functionss">
           <div class="navigation_functionalities select-menu">
-
             <div class="select-btn">
               <span class="Btn-text">Sans-Serif</span>
             </div>
 
-
-              <ul class="options">
-                <li class="option" data-font="Sans Serif">
-                  <span class="option-text">Sans-Serif</span>
-                </li>
-                <li class="option" data-font="Serif">
-                  <span class="option-text">Serif</span>
-                </li>
-                <li class="option" data-font="Mono">
-                  <span class="option-text">Mono</span>
-                </li>
-              </ul>
+            <ul class="options">
+              <li class="option" data-font="Sans Serif">
+                <span class="option-text">Sans-Serif</span>
+              </li>
+              <li class="option" data-font="Serif">
+                <span class="option-text">Serif</span>
+              </li>
+              <li class="option" data-font="Mono">
+                <span class="option-text">Mono</span>
+              </li>
+            </ul>
           </div>
           <!-- End of functionalities -->
 
@@ -68,6 +67,7 @@
                   src="assets/images/icon-moon.svg"
                   alt=""
                   class="night-moon"
+                  id="moon"
                 />
               </div>
 
@@ -76,63 +76,89 @@
           </div>
           <!-- End of theme feature -->
         </div>
+
+        <!-- </div> -->
         <!-- End of Functionalities -->
       </div>
       <!-- End of Navigation -->
 
       <!-- Input-search-container -->
       <div class="search-container">
-        <input type="text" placeholder="Search for any word..." />
+        <input type="text" placeholder="Search for any word..." id="searchInput"/>
 
-        <img src="assets/images/icon-search.svg" alt="" />
+        <img src="assets/images/icon-search.svg" alt="" id="searchButton" />
       </div>
       <!-- End of Input-search-container -->
 
-      <!-- Word displayer -->
-      <section id="word-display">
-        <div class="word">
-          <h2 id="header"></h2>
-          <p id="phonetic"></p>
+      <section class="content ">
+        <!-- Word displayer -->
+        <section id="word-display">
+          <div class="word">
+            <h2 id="header"></h2>
+            <p id="phonetic"></p>
+          </div>
+
+          <div class="audio">
+            <audio id="audio" src=""></audio>
+            <img src="assets/images/icon-play.svg" alt="" />
+          </div>
+        </section>
+        <!-- End of Word displayer -->
+
+        <div class="meaning-one-wrapper meanings-container">
+          <div class="partsOfSpeech-wrapper">
+            <h4 id="parts-of-speech-one"></h4>
+          </div>
+
+          <div class="meaning-wrapper">
+            <h2>Meaning</h2>
+            <div
+              id="definitionsContainerOne"
+              class="definition_container"
+            ></div>
+          </div>
+
+          <div class="synonyms">
+            <h3>Synonyms</h3>
+            <a href="" id="synonym"></a>
+          </div>
         </div>
 
-        <div class="audio">
-          <audio id="audio" src=""></audio>
-          <img src="assets/images/icon-play.svg" alt="" />
+        <!-- 2nd Meaning Wrapper-->
+        <div class="meaning-two-wrapper meanings-container">
+          <div class="partsOfSpeech-wrapper">
+            <h4 id="parts-of-speech-two"></h4>
+          </div>
+
+          <div class="meaning-wrapper">
+            <h2>Meaning</h2>
+            <div
+              id="definitionsContainerTwo"
+              class="definition_container"
+            ></div>
+            <div id="example"></div>
+          </div>
         </div>
       </section>
-      <!-- End of Word displayer -->
-
-      <div class="meaning-one-wrapper meanings-container">
-        <div class="partsOfSpeech-wrapper">
-          <h4 id="parts-of-speech-one"></h4>
-        </div>
-
-        <div class="meaning-wrapper">
-          <h2>Meaning</h2>
-          <div id="definitionsContainerOne" class="definition_container"></div>
-        </div>
-
-        <div class="synonyms">
-          <h3>Synonyms</h3>
-          <a href="" id="synonym"></a>
-        </div>
-      </div>
-
-      <!-- 2nd Meaning Wrapper-->
-      <div class="meaning-two-wrapper meanings-container">
-        <div class="partsOfSpeech-wrapper">
-          <h4 id="parts-of-speech-two"></h4>
-        </div>
-
-        <div class="meaning-wrapper">
-          <h2>Meaning</h2>
-          <div id="definitionsContainerTwo" class="definition_container"></div>
-          <div id="example"></div>
-        </div>
-      </div>
 
       <!-- Not-found -->
-      <div></div>
+      <div class="not-found hiddeN">
+        <div class="emoji">
+          <!-- <img src="assets/images/" alt=""> -->
+          😕
+        </div>
+        <div class="not-found-content">
+          <h4>No Definitions Found</h4>
+          <p>
+            Sorry pal, we couldn't find definitions for the word you were
+            looking for. You van try the search again at a later time or head to
+            the web instead
+          </p>
+        </div>
+      </div>
+
+      <div id="spinner" class="spinner"></div>
+
       <!-- End Of not found -->
     </section>
   </body>

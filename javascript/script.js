@@ -71,16 +71,8 @@
 
 const toggleSwitch = document.getElementById("toggle");
 const bodyElement = document.body;
+const moon = document.getElementById('moon');
 
-toggleSwitch.addEventListener("change", function () {
-  if (this.checked) {
-    enableDarkMode();
-    console.log("checked");
-  } else {
-    enableLightMode();
-    console.log("unchecked");
-  }
-});
 
 function enableDarkMode() {
   bodyElement.classList.add("dark-mode");
@@ -91,6 +83,23 @@ function enableLightMode() {
   bodyElement.classList.add("light-mode");
   bodyElement.classList.remove("dark-mode");
 }
+
+// Moon toggle
+let clicked = false;
+function toggleMoon(){
+  if(clicked){
+    enableDarkMode()
+  }else{
+    enableLightMode()
+  }
+
+  toggleSwitch.checked = clicked;
+  clicked = !clicked;
+}
+moon.addEventListener('click', toggleMoon)
+toggleSwitch.addEventListener('change', function() {
+  toggleMoon();
+});
 
 // Dropdown Select Menu
 const optionMenu = document.querySelector(".select-menu"),
@@ -113,6 +122,18 @@ options.forEach((option) => {
 });
 
 
+// -----------Spinner-------
+const spinner = document.getElementById('spinner');
+
+function showSpinner(){
+  spinner.style.display = "block";
+}
+
+function hideSpinner(){
+  spinner.style.display = "none";
+}
+
+
 
 
 // const searchInput = document.querySelector('input[type="text"]');
@@ -131,6 +152,9 @@ const body = document.body;
 
 // Function to fetch and display word data
 function fetchAndDisplayWord(word) {
+  // hideSpinner()
+  showSpinner()
+  
   const apiURL = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
 
   head.innerHTML = `${word}`;
@@ -142,6 +166,7 @@ function fetchAndDisplayWord(word) {
   fetch(apiURL)
     .then((response) => response.json())
     .then((data) => {
+      hideSpinner()
       if (data.length === 0) {
         displayNoResults();
         return;
@@ -152,8 +177,10 @@ function fetchAndDisplayWord(word) {
       const meaningsThree = data[0].meanings[2];
       const meaningsFour = data[0].meanings[3];
       const synonyms = meaningsOne.synonyms || [];
-      const partsOfSpeechOne = meaningsOne.partOfSpeech || "";
-      const partsOfSpeechTwo = meaningsTwo.partOfSpeech || "";
+      const partsOfSpeechOne = meaningsOne && meaningsOne.partOfSpeech ? meaningsOne.partOfSpeech : "";
+      const partsOfSpeechTwo = meaningsTwo && meaningsTwo.partOfSpeech ? meaningsTwo.partOfSpeech : "";
+      
+
       const phonetic = data[0].phonetic;
       const definitionTwo = meaningsTwo.definitions[0]?.definition || "";
 
@@ -181,24 +208,91 @@ function fetchAndDisplayWord(word) {
 
         synonymEl.innerText = `${synonyms}`;
       });
+
+      showContent()
+      hideSpinner()
     })
     .catch((error) => {
       console.log("Error:", error);
+      
     });
 }
 
-// Function to display "No Results" message
-function displayNoResults() {
-  head.innerText = "No Results Found";
+// Function to show the content section
+function showContent() {
+  const contentSection = document.querySelector('.content');
+  contentSection.style.display = 'block';
 }
 
-// Event listener for search input
-searchInput.addEventListener("keyup", function (event) {
-  const word = event.target.value.trim();
+// const searchButton = document.getElementById("searchButton");
 
-  if (word !== "") {
-    fetchAndDisplayWord(word);
-  } else {
-    displayNoResults();
+// // Event listener for search button
+// searchButton.addEventListener("click", function () {
+//   searchWord();
+// });
+
+// // Event listener for Enter key press
+// document.addEventListener("keyup", function (event) {
+//   if (event.key === "Enter" && event.target.id === "searchInput") {
+//     searchWord();
+//   }
+// });
+
+// // Function to search for the word
+// function searchWord() {
+//   const searchInput = document.getElementById("searchInput");
+
+//   if (searchInput) {
+//     const word = searchInput.value.trim();
+
+//     if (word !== '') {
+//       fetchAndDisplayWord(word);
+//     } else {
+//       displayNoResults();
+//     }
+//   }
+// }
+
+document.addEventListener("DOMContentLoaded", function() {
+  const searchInput = document.getElementById("searchInput");
+  const searchButton = document.getElementById("searchButton");
+
+  // Event listener for search button
+  searchButton.addEventListener("click", function () {
+    searchWord();
+  });
+
+  // Event listener for Enter key press
+  searchInput.addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+      searchWord();
+    }
+  });
+
+  // Function to search for the word
+  function searchWord() {
+    const word = searchInput.value.trim();
+
+    if (word !== '') {
+      fetchAndDisplayWord(word);
+    } else {
+      // displayNoResults();
+      clearResults();
+    }
   }
+
+  // Rest of your code...
 });
+
+function clearResults() {
+  searchInput.value = '';
+  head.innerHTML = '';
+  definitionsContainer.innerHTML = '';
+  definitionsContainerTwo.innerHTML = '';
+  synonymEl.innerText = '';
+  exampleEl.innerText = '';
+  partsOfSpeechOneEl.innerText = '';
+  partsOfSpeechTwoEl.innerText = '';
+  phoneticEl.innerText = '';
+}
+

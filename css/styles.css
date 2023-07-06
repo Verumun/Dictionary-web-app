@@ -11,7 +11,7 @@
     bottom: 0;
     top: 0;
     left: -.9rem;
-    background-color: #fff; }
+    background-color: #3a3a3a; }
   .toggle-switch input {
     opacity: 0;
     width: 0;
@@ -36,6 +36,8 @@
     -webkit-transition: 0.4s;
     border-radius: 3.5rem;
     background-color: #757575; }
+    .toggle-switch .slider:hover {
+      background-color: #a445ed; }
     .toggle-switch .slider::before {
       position: absolute;
       background-color: #fff;
@@ -62,19 +64,39 @@ body {
       color: #ffff; }
       body.dark-mode input::placeholder {
         color: #ffff; }
+    body.dark-mode .select-menu .options {
+      background-color: #3a3a3a;
+      box-shadow: #a445ed 0px 4px 26px 3px; }
 
 .dictionary-wrapper {
   margin-top: 1rem;
-  width: 40rem;
+  width: 45rem;
   overflow: hidden; }
 
 .navigation {
   display: flex;
   align-items: center;
   justify-content: space-between; }
+  .navigation .functionss {
+    display: flex;
+    align-items: center; }
+    .navigation .functionss .theme-feature {
+      margin-left: 1.5rem; }
+      .navigation .functionss .theme-feature .image-toggle {
+        cursor: pointer; }
+        .navigation .functionss .theme-feature .image-toggle .moon {
+          filter: hue-rotate(270deg); }
+      .navigation .functionss .theme-feature .night {
+        filter: url(#custom-filter);
+        stroke: red; }
+      .navigation .functionss .theme-feature .toggle {
+        display: flex;
+        align-items: center;
+        gap: 1rem; }
   .navigation .select-menu {
-    width: 5rem;
-    position: relative; }
+    width: 6rem;
+    position: relative;
+    cursor: pointer; }
     .navigation .select-menu.active .options {
       display: block; }
     .navigation .select-menu .select-btn::after {
@@ -85,30 +107,43 @@ body {
       bottom: 0;
       pointer-events: none; }
     .navigation .select-menu .options {
-      position: relative;
-      background-color: red;
-      margin-top: .5rem;
-      display: none; }
+      position: absolute;
+      z-index: 9;
+      background-color: #ffff;
+      margin-top: 1rem;
+      display: none;
+      width: 7rem;
+      right: 0;
+      padding: 1.2rem;
+      border-radius: 1rem;
+      box-shadow: #777777 0px 4px 12px -4px; }
       .navigation .select-menu .options .option {
         cursor: pointer;
         line-height: 1.7;
         list-style-type: none; }
+        .navigation .select-menu .options .option:hover {
+          color: #a445ed;
+          transition: all 250ms; }
 
 .search-container {
   margin: 1.5rem 0;
   width: 100%;
-  position: relative; }
+  position: relative;
+  display: flex;
+  justify-content: center; }
   .search-container input {
     width: 93%;
-    padding: 1.5rem;
+    padding: 1.2rem 1.5rem;
     border-radius: 1rem;
     outline: #a445ed;
     background-color: #E9E9E9;
     border: none;
-    font-size: 1.5rem; }
+    font-size: 1.3rem; }
+    .search-container input:focus {
+      outline: 1px solid #a445ed; }
   .search-container img {
     position: absolute;
-    top: 1.8rem;
+    top: 1.5rem;
     right: 1.5rem; }
 
 #word-display {
@@ -116,7 +151,8 @@ body {
   align-items: center;
   justify-content: space-between; }
   #word-display .word h2 {
-    font-size: 4rem; }
+    font-size: 4rem;
+    text-transform: capitalize; }
   #word-display .word p {
     font-size: 1.7rem;
     color: #a445ed; }
@@ -167,3 +203,43 @@ body {
 
 .definition_container {
   padding-left: 2rem; }
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 6rem; }
+  .not-found .emoji {
+    font-size: 3rem; }
+  .not-found .not-found-content {
+    margin-top: 1.5rem;
+    font-size: 1.1rem; }
+    .not-found .not-found-content h4 {
+      margin-bottom: 1rem; }
+    .not-found .not-found-content p {
+      color: #757575; }
+
+.hiddeN {
+  display: none; }
+
+.content {
+  display: none; }
+
+.spinner {
+  border: 4px solid #757575;
+  /* Light gray */
+  border-top: 4px solid #a445ed;
+  /* Blue */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+  display: none; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
